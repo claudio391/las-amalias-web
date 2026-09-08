@@ -241,6 +241,11 @@
             background-color: var(--verde-secundario);
         }
 
+        .btn-submit:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
         /* BOTÓN FLOTANTE WHATSAPP */
         .whatsapp-btn {
             position: fixed;
@@ -403,7 +408,7 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE COTIZACIÓN B2B CON WEB3FORMS INTEGRADO -->
+    <!-- FORMULARIO DE COTIZACIÓN B2B CON ENVÍO ASÍNCRONO -->
     <section class="container" id="cotizacion">
         <div class="section-title">
             <h2>Solicitud de Cotización Ejecutiva</h2>
@@ -411,7 +416,7 @@
         </div>
 
         <div class="form-container">
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form id="formCotizacion">
                 <!-- ACCESS KEY DE WEB3FORMS -->
                 <input type="hidden" name="access_key" value="0f732bdb-443c-4cef-81a3-c2bd8931a841">
                 
@@ -455,7 +460,10 @@
                     <textarea id="mensaje" name="message" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Enviar Solicitud de Cotización</button>
+                <button type="submit" id="btnSubmit" class="btn-submit">Enviar Solicitud de Cotización</button>
+
+                <!-- MENSAJE DE CONFIRMACIÓN INTEGRADO EN LA PÁGINA -->
+                <div id="formResultado" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 4px; text-align: center; font-weight: bold;"></div>
             </form>
         </div>
     </section>
@@ -470,6 +478,60 @@
         <p>&copy; 2026 Las Amalias — Posadas, Misiones, Argentina. Todos los derechos reservados.</p>
         <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Legacy Rural | Calzados Böhm | Segutek</p>
     </footer>
+
+    <!-- SCRIPT DE PROCESAMIENTO ASÍNCRONO DE FORMULARIO -->
+    <script>
+    const form = document.getElementById('formCotizacion');
+    const resultado = document.getElementById('formResultado');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        btnSubmit.disabled = true;
+        btnSubmit.innerText = "Enviando solicitud...";
+        
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
+        })
+        .then(async (response) => {
+            let jsonRes = await response.json();
+            if (response.status == 200) {
+                resultado.style.display = "block";
+                resultado.style.backgroundColor = "#d4edda";
+                resultado.style.color = "#155724";
+                resultado.style.border = "1px solid #c3e6cb";
+                resultado.innerHTML = "¡Solicitud enviada con éxito! Nos pondremos en contacto a la brevedad.";
+                form.reset();
+            } else {
+                throw new Error(jsonRes.message);
+            }
+        })
+        .catch(error => {
+            resultado.style.display = "block";
+            resultado.style.backgroundColor = "#f8d7da";
+            resultado.style.color = "#721c24";
+            resultado.style.border = "1px solid #f5c6cb";
+            resultado.innerHTML = "Ocurrió un error al enviar. Por favor intente nuevamente o contáctenos por WhatsApp.";
+        })
+        .then(function() {
+            btnSubmit.disabled = false;
+            btnSubmit.innerText = "Enviar Solicitud de Cotización";
+            setTimeout(() => {
+                resultado.style.display = "none";
+            }, 6000);
+        });
+    });
+    </script>
 
 </body>
 </html>
