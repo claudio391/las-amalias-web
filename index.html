@@ -403,7 +403,7 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE COTIZACIÓN B2B -->
+    <!-- FORMULARIO DE COTIZACIÓN B2B CON WEB3FORMS INTEGRADO -->
     <section class="container" id="cotizacion">
         <div class="section-title">
             <h2>Solicitud de Cotización Ejecutiva</h2>
@@ -411,7 +411,13 @@
         </div>
 
         <div class="form-container">
-            <form action="#" method="POST">
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <!-- ACCESS KEY DE WEB3FORMS -->
+                <input type="hidden" name="access_key" value="0f732bdb-443c-4cef-81a3-c2bd8931a841">
+                
+                <!-- ASUNTO PERSONALIZADO PARA EL CORREO -->
+                <input type="hidden" name="subject" value="Nueva Cotización Web — Las Amalias">
+
                 <div class="form-group">
                     <label for="empresa">Empresa / Razón Social / Establecimiento *</label>
                     <input type="text" id="empresa" name="empresa" required placeholder="Ej: Cooperativa / Establecimiento...">
@@ -419,7 +425,7 @@
 
                 <div class="form-group">
                     <label for="nombre">Nombre de Contacto *</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre y apellido">
+                    <input type="text" id="nombre" name="name" required placeholder="Nombre y apellido">
                 </div>
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -437,16 +443,16 @@
                     <label for="rubro">Línea de Interés Principal *</label>
                     <select id="rubro" name="rubro" required>
                         <option value="">Seleccione una opción...</option>
-                        <option value="nutricion">Fertilización y Nutrición de Cultivos (Kioshi Stone)</option>
-                        <option value="indumentaria">Indumentaria Laboral (Legacy Rural / Textil Pampeana)</option>
-                        <option value="calzado">Calzados de Seguridad (Calzados Böhm)</option>
-                        <option value="integral">Solución Integral para Empresas / Provisión Continua</option>
+                        <option value="Fertilización y Nutrición (Kioshi Stone)">Fertilización y Nutrición de Cultivos (Kioshi Stone)</option>
+                        <option value="Indumentaria Laboral (Legacy Rural)">Indumentaria Laboral (Legacy Rural / Textil Pampeana)</option>
+                        <option value="Calzados de Seguridad (Böhm)">Calzados de Seguridad (Calzados Böhm)</option>
+                        <option value="Solución Integral B2B">Solución Integral para Empresas / Provisión Continua</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="mensaje">Detalle del Requerimiento / Cantidades / Cultivo *</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
+                    <textarea id="mensaje" name="message" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
                 </div>
 
                 <button type="submit" class="btn-submit">Enviar Solicitud de Cotización</button>
@@ -461,8 +467,8 @@
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Las Amalias — Apóstoles, Misiones, Argentina. Todos los derechos reservados.</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Legacy Rural | Calzados Böhm</p>
+        <p>&copy; 2026 Las Amalias — Posadas, Misiones, Argentina. Todos los derechos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Legacy Rural | Calzados Böhm | Segutek</p>
     </footer>
 
 </body>
