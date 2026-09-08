@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Amalias | Soluciones Agroindustriales, Nutrición de Cultivos y EPP</title>
+    <style>
+        /* ESTILOS GENERALES Y VARIABLES */
+        :root {
+            --verde-primario: #1b4332;
+            --verde-secundario: #2d6a4f;
+            --naranja-accent: #d97706;
+            --gris-fondo: #f8f9fa;
+            --texto-oscuro: #212529;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--gris-fondo);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+        }
+
+        /* NAVEGACIÓN Y HEADER */
+        header {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            color: var(--blanco);
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            display: block;
+            color: #a3b18a;
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--naranja-accent);
+        }
+
+        .btn-header {
+            background-color: var(--naranja-accent);
+            color: var(--blanco);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(27, 67, 50, 0.85), rgba(45, 106, 79, 0.85)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1350&q=80') center/cover;
+            color: var(--blanco);
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+        }
+
+        /* SECCIONES Y CONTENEDORES */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            color: var(--verde-primario);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #6c757d;
+        }
+
+        /* TARJETAS DE UNIDADES DE NEGOCIO */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--blanco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-header {
+            background-color: var(--verde-secundario);
+            color: var(--blanco);
+            padding: 1.5rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-body ul {
+            list-style: square;
+            margin-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            background-color: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+
+        /* SECCIÓN SOLUCIONES PARA EMPRESAS */
+        .solutions-box {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+            border-radius: 8px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .solution-item {
+            border-left: 3px solid var(--naranja-accent);
+            padding-left: 1rem;
+        }
+
+        /* FORMULARIO B2B */
+        .form-container {
+            background: var(--blanco);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        .btn-submit {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--verde-secundario);
+        }
+
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #111;
+            color: #888;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>LAS AMALIAS</h1>
+                <span>SOLUCIONES AGROINDUSTRIALES</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#fertilización">Fertilización</a></li>
+                    <li><a href="#indumentaria">Indumentaria & EPP</a></li>
+                    <li><a href="#soluciones">Soluciones a Medida</a></li>
+                    <li><a href="#cotizacion" class="btn-header">Solicitar Cotización</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Respuestas Integrales para el Campo y la Industria Regional</h2>
+        <p>Nutrición nanotecnológica de cultivos, indumentaria laboral técnica y equipamiento de protección personal con respaldo en Posadas, Misiones.</p>
+        <a href="#cotizacion" class="btn-header" style="padding: 0.8rem 1.8rem; font-size: 1.1rem;">Contactar con un Asesor Técnico</a>
+    </section>
+
+    <!-- UNIDADES DE NEGOCIO -->
+    <section class="container" id="fertilización">
+        <div class="section-title">
+            <h2>Nuestras Soluciones Comerciales</h2>
+            <p>Marcas líderes seleccionadas para la máxima productividad y seguridad en Misiones y el NEA</p>
+        </div>
+
+        <div class="grid-3">
+            
+            <!-- TARJETA 1: KIOSHI STONE -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Nutrición & Suelos</h3>
+                    <small>Kioshi Stone</small>
+                </div>
+                <div class="card-body">
+                    <p><strong>Nanotecnología aplicada a la eficiencia agrícola:</strong></p>
+                    <ul>
+                        <li><strong>Línea Líquida (MIST):</strong> Nanotécnicos de alta densidad para aplicación foliar.</li>
+                        <li><strong>Microgranulados:</strong> Corrección nanotecnológica y enmienda de suelos localizada.</li>
+                        <li><strong>Enfoque Regional:</strong> Programas específicos para Yerba Mate, Té, Cítricos, Forestal, Maíz y Soja.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Solicitar Fichas Técnicas →</a>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: TEXTIL PAMPEANA & PASO FIRME -->
+            <div class="card" id="indumentaria">
+                <div class="card-header">
+                    <h3>Indumentaria Laboral</h3>
+                    <small>Textil Pampeana / Paso Firme</small>
+                </div>
+                <div class="card-body">
+                    <p><strong>Ropa de trabajo e indumentaria técnica de alta durabilidad:</strong></p>
+                    <ul>
+                        <li><strong>Textil Pampeana:</strong> Camisas Grafa 70, pantalones cargo, prendas con protección UV e impermeables.</li>
+                        <li><strong>Paso Firme:</strong> Calzado de seguridad con puntera de acero/composite y botas de goma para campo/industria.</li>
+                        <li><strong>Talles y Personalización:</strong> Disponibilidad para dotaciones completas.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Consultar Catálogo →</a>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: SEGUTEK -->
+            <div class="card">
+                <div class="card-header">
+                    <h3>Protección Personal (EPP)</h3>
+                    <small>Segutek</small>
+                </div>
+                <div class="card-body">
+                    <p><strong>Equipamiento certificado para seguridad industrial y agrícola:</strong></p>
+                    <ul>
+                        <li><strong>Protección Respiratoria y Ocular:</strong> Máscaras, antiparras y filtros para aplicación de fitosanitarios.</li>
+                        <li><strong>Protección Auditiva y en Altura:</strong> Arneses, cabos de vida y protectores de copa/inserción.</li>
+                        <li><strong>Guantes Técnicos:</strong> Protección química, de corte y trabajo pesado.</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Cotizar Equipamiento →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOLUCIONES PARA EMPRESAS (KNOW-HOW) -->
+    <section class="container" id="soluciones" style="padding-top: 0;">
+        <div class="solutions-box">
+            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Soluciones Integrales para Empresas y Cooperativas</h2>
+            <p>Ponemos a disposición la capacidad logística, técnica y comercial de <strong>Las Amalias</strong> para desarrollos corporativos a medida en la región.</p>
+
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <h4>Programas de Provisión Continua</h4>
+                    <p>Acuerdos marco de entrega programada para indumentaria y EPP en empresas forestales, secaderos y yerbales.</p>
+                </div>
+                <div class="solution-item">
+                    <h4>Personalización Institucional</h4>
+                    <p>Servicio de bordado y estampado de indumentaria corporativa para identificación de personal.</p>
+                </div>
+                <div class="solution-item">
+                    <h4>Formulación y Asesoramiento</h4>
+                    <p>Acompañamiento técnico en campo para la dosificación y aplicación nanotecnológica de Kioshi Stone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO DE COTIZACIÓN B2B -->
+    <section class="container" id="cotizacion">
+        <div class="section-title">
+            <h2>Solicitud de Cotización Ejecutiva</h2>
+            <p>Complete el formulario y un asesor técnico-comercial se pondrá en contacto en breve.</p>
+        </div>
+
+        <div class="form-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="empresa">Empresa / Razón Social / Establecimiento *</label>
+                    <input type="text" id="empresa" name="empresa" required placeholder="Ej: Cooperativa / Establecimiento...">
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre de Contacto *</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre y apellido">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3764......">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico *</label>
+                        <input type="email" id="email" name="email" required placeholder="contacto@empresa.com">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="rubro">Línea de Interés Principal *</label>
+                    <select id="rubro" name="rubro" required>
+                        <option value="">Seleccione una opción...</option>
+                        <option value="nutricion">Fertilización y Nutrición de Cultivos (Kioshi Stone)</option>
+                        <option value="indumentaria">Indumentaria Laboral y Calzado (Textil Pampeana / Paso Firme)</option>
+                        <option value="epp">Elementos de Protección Personal (Segutek)</option>
+                        <option value="integral">Solución Integral para Empresas / Provisión Continua</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Detalle del Requerimiento / Cantidades / Cultivo *</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Enviar Solicitud de Cotización</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- BOTÓN WHATSAPP -->
+    <a href="https://wa.me/5493764000000?text=Hola,%20quisiera%20recibir%20asesoramiento%20comercial%20de%20Las%20Amalias" class="whatsapp-btn" target="_blank">
+        💬 WhatsApp Técnico
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Las Amalias — Posadas, Misiones, Argentina. Todos los derechos reservados.</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Segutek | Textil Pampeana | Paso Firme</p>
+    </footer>
+
+</body>
+</html>
