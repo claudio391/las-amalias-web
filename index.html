@@ -64,6 +64,7 @@
             display: flex;
             list-style: none;
             gap: 1.5rem;
+            align-items: center;
         }
 
         nav a {
@@ -363,6 +364,81 @@
             color: white;
         }
 
+        /* MODAL GALERÍA WEBP */
+        .modal-galeria {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .galeria-contenedor {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            height: 90vh;
+            background: #fff;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .galeria-header {
+            background: var(--verde-primario);
+            color: #fff;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .galeria-body {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #222;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .galeria-body img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .galeria-controls {
+            background: #111;
+            padding: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+        }
+
+        .btn-galeria {
+            background: var(--naranja-accent);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-galeria:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
         /* FOOTER */
         footer {
             background-color: #111;
@@ -405,6 +481,8 @@
                     <li><a href="#indumentaria">Indumentaria</a></li>
                     <li><a href="#calzado">Calzados</a></li>
                     <li><a href="#soluciones">Soluciones a Medida</a></li>
+                    <li><a href="https://www.facebook.com/lasamaliasagroindustrial" target="_blank" title="Facebook">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/las_amalias_agroindustrial" target="_blank" title="Instagram">Instagram</a></li>
                     <li><a href="#cotizacion" class="btn-header">Solicitar Cotización</a></li>
                 </ul>
             </nav>
@@ -450,7 +528,7 @@
             <div class="card" id="indumentaria">
                 <div class="card-header">
                     <h3>Indumentaria Laboral</h3>
-                    <small>Legacy Rural</small>
+                    <small>Textil Pampeana / Legacy Rural</small>
                 </div>
                 <div class="card-body">
                     <p><strong>Confort, resistencia y diseño técnico profesional:</strong></p>
@@ -461,7 +539,10 @@
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="Catalogo Ropa Legacy 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-weight: bold; text-decoration: none;">📄 Ver Catálogo Legacy (PDF) →</a>
+                    <button onclick="abrirGaleria('legacy')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                        ⚡ Ver Catálogo interactivo WebP
+                    </button>
+                    <a href="Catalogo Ropa Legacy 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
                     <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Consultar Cotización por Volumen →</a>
                 </div>
             </div>
@@ -481,7 +562,10 @@
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <a href="Catalogo Calzado Bohm 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-weight: bold; text-decoration: none;">📄 Ver Catálogo Böhm (PDF) →</a>
+                    <button onclick="abrirGaleria('bohm')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                        ⚡ Ver Catálogo interactivo WebP
+                    </button>
+                    <a href="Catalogo Calzado Bohm 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
                     <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Cotizar Calzados por Par / Dotación →</a>
                 </div>
             </div>
@@ -568,6 +652,24 @@
         </div>
     </section>
 
+    <!-- MODAL DE GALERÍA WEBP INTERACTIVA -->
+    <div id="modalGaleria" class="modal-galeria">
+        <div class="galeria-contenedor">
+            <div class="galeria-header">
+                <h3 id="galeriaTitulo">Catálogo de Productos</h3>
+                <button onclick="cerrarGaleria()" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+            </div>
+            <div class="galeria-body">
+                <img id="galeriaImagen" src="" alt="Página de Catálogo">
+            </div>
+            <div class="galeria-controls">
+                <button id="btnPrev" class="btn-galeria" onclick="cambiarPagina(-1)">← Anterior</button>
+                <span id="galeriaInfo" style="font-weight:bold;">Página 1 de 1</span>
+                <button id="btnNext" class="btn-galeria" onclick="cambiarPagina(1)">Siguiente →</button>
+            </div>
+        </div>
+    </div>
+
     <!-- WIDGET CHATBOT INTERACTIVO -->
     <div class="chat-widget" id="chatWidget">
         <div class="chat-header">
@@ -582,7 +684,7 @@
                 Hola 👋 Bienvenida/o a <strong>Las Amalias</strong>. ¿En qué podemos ayudarte hoy?
             </div>
             <div class="chat-options" id="chatOptions">
-                <button class="chat-btn" onclick="responderBot('catalogos')">📄 Ver Catálogos en PDF</button>
+                <button class="chat-btn" onclick="responderBot('catalogos')">📄 Ver Catálogos Interactivos</button>
                 <button class="chat-btn" onclick="responderBot('kioshi')">🌱 Dosis y Fertilizantes Kioshi</button>
                 <button class="chat-btn" onclick="responderBot('cotizar')">📋 Formulario de Cotización</button>
                 <button class="chat-btn chat-btn-human" onclick="conectarHumano()">💬 Hablar con Asesor Humano</button>
@@ -603,11 +705,91 @@
             <a href="https://www.facebook.com/lasamaliasagroindustrial" target="_blank" style="color: #25d366; text-decoration: none; margin: 0 5px;">Facebook</a> | 
             <a href="https://www.instagram.com/las_amalias_agroindustrial" target="_blank" style="color: #25d366; text-decoration: none; margin: 0 5px;">Instagram</a>
         </p>
-        <!p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Segutek | Textil Pampeana | Calzados Böhm</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Kioshi Stone | Segutek | Textil Pampeana | Calzados Böhm</p>
     </footer>
 
     <!-- SCRIPTS DE INTERACCIÓN Y FORMULARIO -->
     <script>
+    // BASE DE DATOS DE IMÁGENES WEBP DE LOS CATÁLOGOS
+    const catalogosData = {
+        legacy: {
+            titulo: "Catálogo Indumentaria Legacy / Textil Pampeana",
+            paginas: [
+                "Catalogo Ropa Legacy 2025-1.webp",
+                "Catalogo Ropa Legacy 2025-2.webp",
+                "Catalogo Ropa Legacy 2025-3.webp",
+                "Catalogo Ropa Legacy 2025-4.webp",
+                "Catalogo Ropa Legacy 2025-5.webp",
+                "Catalogo Ropa Legacy 2025-6.webp",
+                "Catalogo Ropa Legacy 2025-7.webp",
+                "Catalogo Ropa Legacy 2025-8.webp",
+                "Catalogo Ropa Legacy 2025-9.webp",
+                "Catalogo Ropa Legacy 2025-10.webp",
+                "Catalogo Ropa Legacy 2025-11.webp",
+                "Catalogo Ropa Legacy 2025-12.webp",
+                "Catalogo Ropa Legacy 2025-13.webp",
+                "Catalogo Ropa Legacy 2025-14.webp"
+            ]
+        },
+        bohm: {
+            titulo: "Catálogo Calzados de Seguridad Böhm",
+            paginas: [
+                "Catalogo Calzado Bohm 2025-1.webp",
+                "Catalogo Calzado Bohm 2025-2.webp",
+                "Catalogo Calzado Bohm 2025-3.webp",
+                "Catalogo Calzado Bohm 2025-4.webp",
+                "Catalogo Calzado Bohm 2025-5.webp",
+                "Catalogo Calzado Bohm 2025-6.webp",
+                "Catalogo Calzado Bohm 2025-7.webp",
+                "Catalogo Calzado Bohm 2025-8.webp",
+                "Catalogo Calzado Bohm 2025-9.webp",
+                "Catalogo Calzado Bohm 2025-10.webp",
+                "Catalogo Calzado Bohm 2025-11.webp",
+                "Catalogo Calzado Bohm 2025-12.webp",
+                "Catalogo Calzado Bohm 2025-13.webp",
+                "Catalogo Calzado Bohm 2025-14.webp",
+                "Catalogo Calzado Bohm 2025-15.webp",
+                "Catalogo Calzado Bohm 2025-16.webp",
+                "Catalogo Calzado Bohm 2025-17.webp",
+                "Catalogo Calzado Bohm 2025-18.webp",
+                "Catalogo Calzado Bohm 2025-19.webp"
+            ]
+        }
+    };
+
+    let catalogoActual = null;
+    let paginaActualIndex = 0;
+
+    function abrirGaleria(key) {
+        catalogoActual = catalogosData[key];
+        paginaActualIndex = 0;
+        document.getElementById('galeriaTitulo').innerText = catalogoActual.titulo;
+        actualizarVisor();
+        document.getElementById('modalGaleria').style.display = 'flex';
+    }
+
+    function cerrarGaleria() {
+        document.getElementById('modalGaleria').style.display = 'none';
+    }
+
+    function cambiarPagina(direccion) {
+        paginaActualIndex += direccion;
+        actualizarVisor();
+    }
+
+    function actualizarVisor() {
+        const img = document.getElementById('galeriaImagen');
+        const info = document.getElementById('galeriaInfo');
+        const btnPrev = document.getElementById('btnPrev');
+        const btnNext = document.getElementById('btnNext');
+
+        img.src = catalogoActual.paginas[paginaActualIndex];
+        info.innerText = `Página ${paginaActualIndex + 1} de ${catalogoActual.paginas.length}`;
+
+        btnPrev.disabled = (paginaActualIndex === 0);
+        btnNext.disabled = (paginaActualIndex === catalogoActual.paginas.length - 1);
+    }
+
     // FORMULARIO WEB3FORMS
     const form = document.getElementById('formCotizacion');
     const resultado = document.getElementById('formResultado');
@@ -671,9 +853,9 @@
         let respuesta = '';
 
         if (opcion === 'catalogos') {
-            respuesta = `Podés revisar nuestros catálogos completos en PDF:<br><br>
-            • <a href="Catalogo Ropa Legacy 2025.pdf" target="_blank" style="color:var(--verde-secundario); font-weight:bold;">Catálogo Indumentaria Legacy</a><br>
-            • <a href="Catalogo Calzado Bohm 2025.pdf" target="_blank" style="color:var(--verde-secundario); font-weight:bold;">Catálogo Calzados Böhm</a>`;
+            respuesta = `Podés revisar nuestros catálogos interactivos directamente en la web:<br><br>
+            • <button onclick="abrirGaleria('legacy')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Legacy WebP</button><br>
+            • <button onclick="abrirGaleria('bohm')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Böhm WebP</button>`;
         } else if (opcion === 'kioshi') {
             respuesta = `Contamos con soluciones nanotecnológicas Kioshi Stone (línea líquida MIST y microgranulados) para yerba mate, té, cítricos, forestal, maíz y soja.<br><br>
             Podés pedir asesoramiento de dosis en nuestro formulario.`;
