@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Las Amalias | Soluciones Agroindustriales en Misiones y el NEA. Nutrición nanotecnológica de cultivos Kioshi Stone, indumentaria de trabajo Legacy y calzados de seguridad Böhm / Segutek.">
     <title>Las Amalias | Soluciones Agroindustriales, Nutrición de Cultivos, Indumentaria y Calzados</title>
     <style>
         /* ESTILOS GENERALES Y VARIABLES */
         :root {
             --verde-primario: #1b4332;
             --verde-secundario: #2d6a4f;
-            --naranja-accent: #d97706;
+            --naranja-accent: #b45309; /* Ajustado para cumplir contraste WCAG AA (> 4.5:1) */
             --gris-fondo: #f8f9fa;
             --texto-oscuro: #212529;
             --blanco: #ffffff;
@@ -55,7 +56,7 @@
 
         .logo-img {
             height: 45px;
-            width: auto;
+            width: 45px;
             object-fit: contain;
         }
 
@@ -88,7 +89,7 @@
         }
 
         nav a:hover {
-            color: var(--naranja-accent);
+            color: #fbbf24;
         }
 
         .btn-header {
@@ -138,7 +139,7 @@
         }
 
         .section-title p {
-            color: #6c757d;
+            color: #4b5563;
         }
 
         /* TARJETAS DE UNIDADES DE NEGOCIO */
@@ -265,7 +266,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #25d366;
+            background-color: #1ebd56;
             color: white;
             border: none;
             border-radius: 50px;
@@ -364,7 +365,7 @@
         }
 
         .chat-btn-human {
-            background-color: #25d366;
+            background-color: #1ebd56;
             color: white;
             border: none;
             font-weight: bold;
@@ -372,7 +373,7 @@
         }
 
         .chat-btn-human:hover {
-            background-color: #1ebd56;
+            background-color: #15803d;
             color: white;
         }
 
@@ -454,10 +455,16 @@
         /* FOOTER */
         footer {
             background-color: #111;
-            color: #888;
+            color: #aaa;
             text-align: center;
             padding: 2rem 1rem;
             font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #1d9c49;
+            text-decoration: underline;
+            margin: 0 5px;
         }
 
         /* RESPONSIVE */
@@ -484,198 +491,200 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <img src="ruedita 333.png" alt="Logo Las Amalias" class="logo-img">
+                <img src="ruedita 333.png" alt="Logo Las Amalias" class="logo-img" width="45" height="45" fetchpriority="high">
                 <div class="logo-text">
                     <h1>LAS AMALIAS</h1>
                     <span>SOLUCIONES AGROINDUSTRIALES</span>
                 </div>
             </div>
-            <nav>
+            <nav aria-label="Navegación principal">
                 <ul>
                     <li><a href="#fertilización">Fertilización</a></li>
                     <li><a href="#indumentaria">Indumentaria</a></li>
                     <li><a href="#calzado">Calzados</a></li>
                     <li><a href="#soluciones">Soluciones a Medida</a></li>
-                    
                     <li><a href="#cotizacion" class="btn-header">Solicitar Cotización</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h2>Respuestas Integrales para el Campo y la Industria Regional</h2>
-        <p>Nutrición nanotecnológica de cultivos, indumentaria de trabajo y calzados de seguridad certificados.</p>
-        <a href="#cotizacion" class="btn-header" style="padding: 0.8rem 1.8rem; font-size: 1.1rem;">Contactar con un Asesor Técnico</a>
-    </section>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <h2>Respuestas Integrales para el Campo y la Industria Regional</h2>
+            <p>Nutrición nanotecnológica de cultivos, indumentaria de trabajo y calzados de seguridad certificados.</p>
+            <a href="#cotizacion" class="btn-header" style="padding: 0.8rem 1.8rem; font-size: 1.1rem;">Contactar con un Asesor Técnico</a>
+        </section>
 
-    <!-- UNIDADES DE NEGOCIO -->
-    <section class="container" id="fertilización">
-        <div class="section-title">
-            <h2>Nuestras Soluciones Comerciales</h2>
-            <p>Marcas líderes seleccionadas para la máxima productividad y seguridad en Misiones y el NEA</p>
-        </div>
-
-        <div class="grid-3">
-            
-            <!-- TARJETA 1: KIOSHI STONE -->
-            <div class="card">
-                <div class="card-header">
-                    <h3>Nutrición & Suelos</h3>
-                    <small>Kioshi Stone</small>
-                </div>
-                <div class="card-body">
-                    <p><strong>Nanotecnología aplicada a la eficiencia agrícola:</strong></p>
-                    <ul>
-                        <li><strong>Línea Líquida (MIST):</strong> Nanopartículas minerales de alta pureza para aplicación foliar.</li>
-                        <li><strong>Microgranulados:</strong> Corrección nanotecnológica y enmienda de suelos localizada.</li>
-                        <li><strong>Enfoque Regional:</strong> Programas específicos para Yerba Mate, Té, Cítricos, Forestal, Maíz y Soja.</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <button onclick="abrirGaleria('kioshi')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
-                        ⚡ Ver Catálogo
-                    </button>
-                    <a href="Catálogo Digital - Kioshi Stone - Las Amalias.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
-                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Realizar Consulta →</a>
-                </div>
+        <!-- UNIDADES DE NEGOCIO -->
+        <section class="container" id="fertilización">
+            <div class="section-title">
+                <h2>Nuestras Soluciones Comerciales</h2>
+                <p>Marcas líderes seleccionadas para la máxima productividad y seguridad en Misiones y el NEA</p>
             </div>
 
-            <!-- TARJETA 2: INDUMENTARIA LABORAL (LEGACY RURAL) -->
-            <div class="card" id="indumentaria">
-                <div class="card-header">
-                    <h3>Indumentaria Laboral</h3>
-                    <small>Legacy Rural</small>
-                </div>
-                <div class="card-body">
-                    <p><strong>Confort, resistencia y diseño técnico profesional:</strong></p>
-                    <ul>
-                        <li><strong>Pantalones y Bombachas:</strong> Pantalón Cargo, Cazador, Rip Stop Antidesgarro y Bombachas de Campo.</li>
-                        <li><strong>Camisas y Remeras:</strong> Camisas de trabajo manga larga y remeras de algodón peinado.</li>
-                        <li><strong>Abrigos Técnicos:</strong> Buzos polar con cierre, camperas polar antipilling y camperas Trucker con capucha.</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <button onclick="abrirGaleria('legacy')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
-                        ⚡ Ver Catálogo
-                    </button>
-                    <a href="Catalogo Ropa Legacy 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
-                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Realizar Consulta →</a>
-                </div>
-            </div>
-
-            <!-- TARJETA 3: CALZADOS DE SEGURIDAD (BÖHM) -->
-            <div class="card" id="calzado">
-                <div class="card-header">
-                    <h3>Calzados de Seguridad</h3>
-                    <small>Calzados Böhm</small>
-                </div>
-                <div class="card-body">
-                    <p><strong>Tecnología alemana, industria argentina certificada IRAM:</strong></p>
-                    <ul>
-                        <li><strong>Botines Composite y Acero:</strong> Inyección directa PU bidensidad, dieléctricos y resistentes a hidrocarburos.</li>
-                        <li><strong>Línea Zapatillas Feder:</strong> Capellada tejida Knight, intersuela EVA/Caucho ultra liviana sin hidrólisis.</li>
-                        <li><strong>Especiales y Tácticos:</strong> Botas petroleras, borceguíes tácticos, calzado sanitario y botas metatarsales.</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <button onclick="abrirGaleria('bohm')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
-                        ⚡ Ver Catálogo
-                    </button>
-                    <a href="Catalogo Calzado Bohm 2025.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
-                    <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Realizar Consulta →</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SOLUCIONES PARA EMPRESAS (KNOW-HOW) -->
-    <section class="container" id="soluciones" style="padding-top: 0;">
-        <div class="solutions-box">
-            <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Soluciones Integrales para Empresas y Cooperativas</h2>
-            <p>Ponemos a disposición la capacidad logística, técnica y comercial de <strong>Las Amalias</strong> para desarrollos corporativos a medida en la región.</p>
-
-            <div class="solutions-grid">
-                <div class="solution-item">
-                    <h3>Programas de Provisión Continua</h3>
-                    <p>Acuerdos marco de entrega programada para indumentaria Legacy y calzados Böhm en empresas forestales, secaderos y yerbales.</p>
-                </div>
-                <div class="solution-item">
-                    <h3>Personalización Institucional</h3>
-                    <p>Servicio de bordado y estampado de indumentaria corporativa para identificación de personal.</p>
-                </div>
-                <div class="solution-item">
-                    <h3>Formulación y Asesoramiento</h3>
-                    <p>Acompañamiento técnico en campo para la dosificación y aplicación nanotecnológica de Kioshi Stone.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FORMULARIO DE COTIZACIÓN B2B CON ENVÍO ASÍNCRONO -->
-    <section class="container" id="cotizacion">
-        <div class="section-title">
-            <h2>Solicitud de Cotización / Consulta </h2>
-            <p>Complete el formulario y un asesor técnico-comercial se pondrá en contacto en breve.</p>
-        </div>
-
-        <div class="form-container">
-            <form id="formCotizacion">
-                <input type="hidden" name="access_key" value="0f732bdb-443c-4cef-81a3-c2bd8931a841">
-                <input type="hidden" name="subject" value="Nueva Cotización Web — Las Amalias">
-
-                <div class="form-group">
-                    <label for="empresa">Empresa / Razón Social / Establecimiento *</label>
-                    <input type="text" id="empresa" name="empresa" required placeholder="Ej: Cooperativa / Establecimiento...">
-                </div>
-
-                <div class="form-group">
-                    <label for="nombre">Nombre de Contacto *</label>
-                    <input type="text" id="nombre" name="name" required placeholder="Nombre y apellido">
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="form-group">
-                        <label for="telefono">Teléfono / WhatsApp *</label>
-                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3764......">
+            <div class="grid-3">
+                
+                <!-- TARJETA 1: KIOSHI STONE -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Nutrición & Suelos</h3>
+                        <small>Kioshi Stone</small>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico *</label>
-                        <input type="email" id="email" name="email" required placeholder="contacto@empresa.com">
+                    <div class="card-body">
+                        <p><strong>Nanotecnología aplicada a la eficiencia agrícola:</strong></p>
+                        <ul>
+                            <li><strong>Línea Líquida (MIST):</strong> Nanopartículas minerales de alta pureza para aplicación foliar.</li>
+                            <li><strong>Microgranulados:</strong> Corrección nanotecnológica y enmienda de suelos localizada.</li>
+                            <li><strong>Enfoque Regional:</strong> Programas específicos para Yerba Mate, Té, Cítricos, Forestal, Maíz y Soja.</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="abrirGaleria('kioshi')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                            ⚡ Ver Catálogo
+                        </button>
+                        <a href="Catálogo Digital - Kioshi Stone - Las Amalias.pdf" target="_blank" aria-label="Descargar catálogo PDF completo de Kioshi Stone" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: underline;">📄 Descargar PDF Kioshi Stone →</a>
+                        <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: underline;">Realizar Consulta →</a>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="rubro">Línea de Interés Principal *</label>
-                    <select id="rubro" name="rubro" required>
-                        <option value="">Seleccione una opción...</option>
-                        <option value="Fertilización y Nutrición (Kioshi Stone)">Fertilización y Nutrición de Cultivos (Kioshi Stone)</option>
-                        <option value="Indumentaria Laboral (Legacy Rural)">Indumentaria Laboral (Legacy Rural / Textil Pampeana)</option>
-                        <option value="Calzados de Seguridad (Böhm)">Calzados de Seguridad (Calzados Böhm)</option>
-                        <option value="Solución Integral B2B">Solución Integral para Empresas / Provisión Continua</option>
-                    </select>
+                <!-- TARJETA 2: INDUMENTARIA LABORAL (LEGACY RURAL) -->
+                <div class="card" id="indumentaria">
+                    <div class="card-header">
+                        <h3>Indumentaria Laboral</h3>
+                        <small>Legacy Rural / Textil Pampeana</small>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Confort, resistencia y diseño técnico profesional:</strong></p>
+                        <ul>
+                            <li><strong>Pantalones y Bombachas:</strong> Pantalón Cargo, Cazador, Rip Stop Antidesgarro y Bombachas de Campo.</li>
+                            <li><strong>Camisas y Remeras:</strong> Camisas de trabajo manga larga y remeras de algodón peinado.</li>
+                            <li><strong>Abrigos Técnicos:</strong> Buzos polar con cierre, camperas polar antipilling y camperas Trucker con capucha.</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="abrirGaleria('legacy')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                            ⚡ Ver Catálogo
+                        </button>
+                        <a href="Catalogo Ropa Legacy 2025.pdf" target="_blank" aria-label="Descargar catálogo PDF completo de Indumentaria Legacy" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: underline;">📄 Descargar PDF Legacy →</a>
+                        <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: underline;">Realizar Consulta →</a>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="mensaje">Detalle del Requerimiento / Cantidades / Cultivo *</label>
-                    <textarea id="mensaje" name="message" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
+                <!-- TARJETA 3: CALZADOS DE SEGURIDAD (BÖHM) -->
+                <div class="card" id="calzado">
+                    <div class="card-header">
+                        <h3>Calzados de Seguridad & EPP</h3>
+                        <small>Calzados Böhm / Segutek</small>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Tecnología alemana, industria argentina certificada IRAM:</strong></p>
+                        <ul>
+                            <li><strong>Botines Composite y Acero:</strong> Inyección directa PU bidensidad, dieléctricos y resistentes a hidrocarburos.</li>
+                            <li><strong>Línea Zapatillas Feder:</strong> Capellada tejida Knight, intersuela EVA/Caucho ultra liviana sin hidrólisis.</li>
+                            <li><strong>Especiales y Tácticos:</strong> Botas petroleras, borceguíes tácticos, calzado sanitario y botas metatarsales.</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <button onclick="abrirGaleria('bohm')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                            ⚡ Ver Catálogo
+                        </button>
+                        <a href="Catalogo Calzado Bohm 2025.pdf" target="_blank" aria-label="Descargar catálogo PDF completo de Calzados Böhm" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: underline;">📄 Descargar PDF Calzados Böhm →</a>
+                        <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: underline;">Realizar Consulta →</a>
+                    </div>
                 </div>
 
-                <button type="submit" id="btnSubmit" class="btn-submit">Enviar Solicitud</button>
+            </div>
+        </section>
 
-                <div id="formResultado" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 4px; text-align: center; font-weight: bold;"></div>
-            </form>
-        </div>
-    </section>
+        <!-- SOLUCIONES PARA EMPRESAS (KNOW-HOW) -->
+        <section class="container" id="soluciones" style="padding-top: 0;">
+            <div class="solutions-box">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Soluciones Integrales para Empresas y Cooperativas</h2>
+                <p>Ponemos a disposición la capacidad logística, técnica y comercial de <strong>Las Amalias</strong> para desarrollos corporativos a medida en la región.</p>
+
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <h3>Programas de Provisión Continua</h3>
+                        <p>Acuerdos marco de entrega programada para indumentaria Legacy, EPP Segutek y calzados Böhm en empresas forestales, secaderos y yerbales.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h3>Personalización Institucional</h3>
+                        <p>Servicio de bordado y estampado de indumentaria corporativa para identificación de personal.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h3>Formulación y Asesoramiento</h3>
+                        <p>Acompañamiento técnico en campo para la dosificación y aplicación nanotecnológica de Kioshi Stone.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULARIO DE COTIZACIÓN B2B CON ENVÍO ASÍNCRONO -->
+        <section class="container" id="cotizacion">
+            <div class="section-title">
+                <h2>Solicitud de Cotización / Consulta</h2>
+                <p>Complete el formulario y un asesor técnico-comercial se pondrá en contacto en breve.</p>
+            </div>
+
+            <div class="form-container">
+                <form id="formCotizacion">
+                    <input type="hidden" name="access_key" value="0f732bdb-443c-4cef-81a3-c2bd8931a841">
+                    <input type="hidden" name="subject" value="Nueva Cotización Web — Las Amalias">
+
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Razón Social / Establecimiento *</label>
+                        <input type="text" id="empresa" name="empresa" required placeholder="Ej: Cooperativa / Establecimiento...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre de Contacto *</label>
+                        <input type="text" id="nombre" name="name" required placeholder="Nombre y apellido">
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono / WhatsApp *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3764......">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="contacto@empresa.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rubro">Línea de Interés Principal *</label>
+                        <select id="rubro" name="rubro" required>
+                            <option value="">Seleccione una opción...</option>
+                            <option value="Fertilización y Nutrición (Kioshi Stone)">Fertilización y Nutrición de Cultivos (Kioshi Stone)</option>
+                            <option value="Indumentaria Laboral (Legacy Rural)">Indumentaria Laboral (Legacy Rural / Textil Pampeana)</option>
+                            <option value="Calzados de Seguridad y EPP">Calzados de Seguridad y EPP (Böhm / Segutek)</option>
+                            <option value="Solución Integral B2B">Solución Integral para Empresas / Provisión Continua</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Detalle del Requerimiento / Cantidades / Cultivo *</label>
+                        <textarea id="mensaje" name="message" rows="4" required placeholder="Escriba aquí los detalles (ej: cantidad de personal a equipar, hectáreas a fertilizar o tipos de cultivo)..."></textarea>
+                    </div>
+
+                    <button type="submit" id="btnSubmit" class="btn-submit">Enviar Solicitud</button>
+
+                    <div id="formResultado" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 4px; text-align: center; font-weight: bold;"></div>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <!-- MODAL DE GALERÍA WEBP INTERACTIVA -->
     <div id="modalGaleria" class="modal-galeria">
         <div class="galeria-contenedor">
             <div class="galeria-header">
                 <h3 id="galeriaTitulo">Catálogo de Productos</h3>
-                <button onclick="cerrarGaleria()" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;">✕</button>
+                <button onclick="cerrarGaleria()" style="background:none; border:none; color:#fff; font-size:1.5rem; cursor:pointer;" aria-label="Cerrar catálogo">✕</button>
             </div>
             <div class="galeria-body">
                 <img id="galeriaImagen" src="" alt="Página de Catálogo">
@@ -695,7 +704,7 @@
                 <h4>Asistente Las Amalias</h4>
                 <span>En línea | Misiones y NEA</span>
             </div>
-            <button class="close-chat" onclick="toggleChat()">✕</button>
+            <button class="close-chat" onclick="toggleChat()" aria-label="Cerrar chat">✕</button>
         </div>
         <div class="chat-body" id="chatBody">
             <div class="bot-msg">
@@ -711,19 +720,20 @@
     </div>
 
     <!-- BOTÓN FLOTANTE PRINCIPAL -->
-    <button class="whatsapp-btn" onclick="toggleChat()">
+    <button class="whatsapp-btn" onclick="toggleChat()" aria-label="Abrir asistente de atención en línea">
         💬 Atención en Línea
     </button>
 
     <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 Las Amalias — Apóstoles, Misiones, Argentina. Todos los derechos reservados.</p>
-        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #aaa;">
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #ccc;">
             Síguenos en redes: 
-            <a href="https://www.facebook.com/lasamaliasagroindustrial" target="_blank" style="color: #25d366; text-decoration: none; margin: 0 5px;">Facebook</a> | 
-            <a href="https://www.instagram.com/las_amalias_agroindustrial" target="_blank" style="color: #25d366; text-decoration: none; margin: 0 5px;">Instagram</a>
+            <a href="https://www.facebook.com/lasamaliasagroindustrial" target="_blank" rel="noopener">Facebook</a> | 
+            <a href="https://www.instagram.com/las_amalias_agroindustrial" target="_blank" rel="noopener">Instagram</a>
         </p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #555;">Soluciones de precisión para la tierra y su gente</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #aaa;">Soluciones de precisión para la tierra y su gente</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: #777;">Kioshi Stone | Segutek | Textil Pampeana / Legacy Rural | Calzados Böhm</p>
     </footer>
 
     <!-- SCRIPTS DE INTERACCIÓN Y FORMULARIO -->
@@ -776,7 +786,7 @@
             ]
         },
         bohm: {
-            titulo: "Catálogo Calzados de Seguridad Böhm",
+            titulo: "Catálogo Calzados de Seguridad Böhm y EPP Segutek",
             paginas: [
                 "Catalogo Calzado Bohm 2025-1.webp",
                 "Catalogo Calzado Bohm 2025-2.webp",
@@ -900,7 +910,7 @@
             respuesta = `Podés revisar nuestros catálogos interactivos directamente en la web:<br><br>
             • <button onclick="abrirGaleria('kioshi')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Kioshi Stone WebP</button><br>
             • <button onclick="abrirGaleria('legacy')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Legacy WebP</button><br>
-            • <button onclick="abrirGaleria('bohm')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Böhm WebP</button>`;
+            • <button onclick="abrirGaleria('bohm')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Böhm y Segutek WebP</button>`;
         } else if (opcion === 'kioshi') {
             respuesta = `Contamos con soluciones nanotecnológicas Kioshi Stone (línea líquida MIST y microgranulados) para yerba mate, té, cítricos, forestal, maíz y soja.<br><br>
             <button onclick="abrirGaleria('kioshi')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Abrir Catálogo Digital Kioshi</button>`;
