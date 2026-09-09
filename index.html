@@ -266,7 +266,6 @@
             cursor: pointer;
         }
 
-        /* VENTANA FLOTANTE DEL CHATBOT */
         .chat-widget {
             position: fixed;
             bottom: 80px;
@@ -520,6 +519,10 @@
                     </ul>
                 </div>
                 <div class="card-footer">
+                    <button onclick="abrirGaleria('kioshi')" class="btn-submit" style="padding: 0.6rem; font-size: 0.9rem;">
+                        ⚡ Ver Catálogo interactivo WebP
+                    </button>
+                    <a href="Catálogo Digital - Kioshi Stone - Las Amalias.pdf" target="_blank" style="color: var(--naranja-accent); font-size: 0.85rem; font-weight: bold; text-decoration: none;">📄 Descargar PDF Completo →</a>
                     <a href="#cotizacion" style="color: var(--verde-secundario); font-weight: bold; text-decoration: none;">Solicitar Fichas Técnicas →</a>
                 </div>
             </div>
@@ -712,6 +715,32 @@
     <script>
     // BASE DE DATOS DE IMÁGENES WEBP DE LOS CATÁLOGOS
     const catalogosData = {
+        kioshi: {
+            titulo: "Catálogo Digital Nutrición Nanotecnológica — Kioshi Stone",
+            paginas: [
+                "Catálogo Digital - Kioshi Stone - Las Amalias-3.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-5.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-6.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-7.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-8.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-9.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-10.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-11.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-12.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-13.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-14.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-15.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-16.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-17.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-18.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-19.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-20.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-21.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-23.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-25.webp",
+                "Catálogo Digital - Kioshi Stone - Las Amalias-26.webp"
+            ]
+        },
         legacy: {
             titulo: "Catálogo Indumentaria Legacy / Textil Pampeana",
             paginas: [
@@ -854,11 +883,12 @@
 
         if (opcion === 'catalogos') {
             respuesta = `Podés revisar nuestros catálogos interactivos directamente en la web:<br><br>
+            • <button onclick="abrirGaleria('kioshi')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Kioshi Stone WebP</button><br>
             • <button onclick="abrirGaleria('legacy')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Legacy WebP</button><br>
             • <button onclick="abrirGaleria('bohm')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Ver Catálogo Böhm WebP</button>`;
         } else if (opcion === 'kioshi') {
             respuesta = `Contamos con soluciones nanotecnológicas Kioshi Stone (línea líquida MIST y microgranulados) para yerba mate, té, cítricos, forestal, maíz y soja.<br><br>
-            Podés pedir asesoramiento de dosis en nuestro formulario.`;
+            <button onclick="abrirGaleria('kioshi')" style="background:none; border:none; color:var(--verde-secundario); font-weight:bold; cursor:pointer; text-decoration:underline;">Abrir Catálogo Digital Kioshi</button>`;
         } else if (opcion === 'cotizar') {
             respuesta = `Podés completar el formulario al final de la página o contactar a un operador directo.`;
             document.getElementById('cotizacion').scrollIntoView({ behavior: 'smooth' });
