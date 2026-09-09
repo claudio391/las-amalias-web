@@ -47,13 +47,26 @@
             padding: 1rem 2rem;
         }
 
-        .logo h1 {
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
             font-size: 1.5rem;
             letter-spacing: 1px;
             color: var(--blanco);
+            line-height: 1.1;
         }
 
-        .logo span {
+        .logo-text span {
             font-size: 0.8rem;
             display: block;
             color: #a3b18a;
@@ -471,8 +484,11 @@
     <header>
         <div class="nav-container">
             <div class="logo">
-                <h1>LAS AMALIAS</h1>
-                <span>SOLUCIONES AGROINDUSTRIALES</span>
+                <img src="ruedita 333.png" alt="Logo Las Amalias" class="logo-img">
+                <div class="logo-text">
+                    <h1>LAS AMALIAS</h1>
+                    <span>SOLUCIONES AGROINDUSTRIALES</span>
+                </div>
             </div>
             <nav>
                 <ul>
@@ -480,6 +496,7 @@
                     <li><a href="#indumentaria">Indumentaria</a></li>
                     <li><a href="#calzado">Calzados</a></li>
                     <li><a href="#soluciones">Soluciones a Medida</a></li>
+                    
                     <li><a href="#cotizacion" class="btn-header">Solicitar Cotización</a></li>
                 </ul>
             </nav>
@@ -600,7 +617,7 @@
     <!-- FORMULARIO DE COTIZACIÓN B2B CON ENVÍO ASÍNCRONO -->
     <section class="container" id="cotizacion">
         <div class="section-title">
-            <h2>Solicitud de Cotización / Consulta</h2>
+            <h2>Solicitud de Cotización / Consulta </h2>
             <p>Complete el formulario y un asesor técnico-comercial se pondrá en contacto en breve.</p>
         </div>
 
